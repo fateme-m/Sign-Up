@@ -46,15 +46,15 @@ form.password.addEventListener('keyup', e => {
         password.innerHTML = '<i>Please select a password </i>'
     }
 })
-form.email.addEventListener('keyUp', e =>{
-    let at =/@/
-    if(at.test(e.target.value)){
-        e.target.className.add('is-valid')
+form.email.addEventListener('keyup', e =>{
+    
+    if(e.target.value.includes("@")){
+        e.target.classList.remove('is-invalid')
+        e.target.classList.add('is-valid')
     }else{
         e.target.classList.add('is-invalid')
     }
 })
-
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -65,9 +65,7 @@ form.addEventListener('submit', e => {
     if(!isPasswordValidated){
         form.password.classList.add('is-invalid')
     }
-
     if(!isUserValidated){
         form.username.classList.add('is-invalid')
-        
     }
 })
