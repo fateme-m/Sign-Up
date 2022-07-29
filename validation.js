@@ -70,11 +70,14 @@ form.addEventListener('submit', e => {
     }
 })
 // theme
+const selectedTheme = localStorage.getItem("theme")?localStorage.getItem("theme") : "dark"
+document.body.className=selectedTheme
 const themes =document.querySelector('.themes')
 
 Array.from(themes.children).forEach(theme =>{
     theme.addEventListener('click', e =>{
         let color =e.target.className
         document.body.className = color 
+        localStorage.setItem("theme", color)
     })
 })
