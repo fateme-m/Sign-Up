@@ -69,3 +69,12 @@ form.addEventListener('submit', e => {
         form.username.classList.add('is-invalid')
     }
 })
+// theme
+const themes =document.querySelector('.themes')
+
+Array.from(themes.children).forEach(theme =>{
+    theme.addEventListener('click', e =>{
+        let color =e.target.className
+        document.body.className = color 
+    })
+})
